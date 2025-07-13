@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Monthly Tables</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    select {
+      padding: 8px;
+      font-size: 16px;
+    }
+    #content {
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      padding: 15px;
+      min-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h2>View Monthly Tables</h2>
+
+  <select id="monthSelector" onchange="loadPage()">
+    <option value="">-- Select a month --</option>
+    <option value="May_2025.html">May 2025</option>
+    <option value="June_2025.html">June 2025</option>
+    <option value="July_2025.html">July 2025</option>
+    <!-- Add more months as needed -->
+  </select>
+
+  <div id="content">
+    <p>Please select a month to load its data.</p>
+  </div>
+
+  <script>
+    function loadPage() {
+      const selector = document.getElementById('monthSelector');
+      const file = selector.value;
+
+      if (!file) {
+        document.getElementById('content').innerHTML = "<p>Please select a month to load its data.</p>";
+        return;
+      }
+
+      fetch(file)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('File not found.');
+          }
+          return response.text();
+        })
+        .then(html => {
+          document.getElementById('content').innerHTML = html;
+        })
+        .catch(error => {
+          document.getElementById('content').innerHTML = `<p style="color:red;">Error loading file: ${error.message}</p>`;
+        });
+    }
+  </script>
+</body>
+</html>
