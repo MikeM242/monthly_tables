@@ -1,273 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprehensive Climate Dashboard</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f4f8;
-            color: #2d3748;
-            margin: 0;
-            padding: 30px 15px;
-        }
-        .container {
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-        header {
-            margin-bottom: 30px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 15px;
-        }
-        h1 {
-            color: #1a202c;
-            margin: 0 0 5px 0;
-            font-size: 28px;
-        }
-        p {
-            color: #718096;
-            margin: 0;
-            font-size: 15px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 35px;
-        }
-        @media(min-width: 1150px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 10px;
-            padding: 22px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
-        }
-        h2 {
-            font-size: 18px;
-            color: #4a5568;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        .table-wrapper {
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 2px;
-            text-align: center;
-            font-size: 13px;
-        }
-        th {
-            background-color: #edf2f7;
-            color: #4a5568;
-            padding: 8px 4px;
-            font-weight: 600;
-            font-size: 11px;
-            text-transform: uppercase;
-        }
-        .summary-col-header {
-            background-color: #cbd5e0;
-            color: #2d3748;
-        }
-        td {
-            padding: 10px 4px;
-            font-weight: bold;
-            border-radius: 3px;
-        }
-        td:first-child {
-            background-color: #f7fafc !important;
-            color: #2d3748 !important;
-            font-weight: bold;
-            font-size: 14px;
-            padding-right: 8px;
-            border-right: 1px solid #e2e8f0;
-        }
-        .summary-cell {
-            background-color: #e2e8f0;
-            color: #2d3748;
-            font-size: 13px;
-        }
-        .bottom-summary-row td {
-            background-color: #e2e8f0;
-            color: #2d3748;
-            border-top: 2px solid #cbd5e0;
-        }
-        .missing {
-            color: #cbd5e0;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Monthly Tables</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #87CEEB;
+    }
+    select {
+      padding: 16px;
+      font-size: 16px;
+    }
+    #content {
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      padding: 15px;
+      min-height: 400px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Climate & Precipitation Dashboard - Ernest Court Weather Station - 2020-present</h1>
-        </header>
-        
-        <div class="grid-container">
-            
-    <div class="card">
-        <h2>Average High Temperatures</h2>
-        <div class="table-wrapper">
-            <table id="avg-high-table" class="heatmap-table" data-theme="orange">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
-                        <th class="summary-col-header">Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>2020</strong></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class="heatmap-cell" data-val="45.20">45.2°</td><td class='summary-cell'><strong>45.2°</strong></td></tr><tr><td><strong>2021</strong></td><td class="heatmap-cell" data-val="40.30">40.3°</td><td class="heatmap-cell" data-val="39.60">39.6°</td><td class="heatmap-cell" data-val="53.90">53.9°</td><td class="heatmap-cell" data-val="62.60">62.6°</td><td class="heatmap-cell" data-val="71.30">71.3°</td><td class="heatmap-cell" data-val="82.30">82.3°</td><td class="heatmap-cell" data-val="84.40">84.4°</td><td class="heatmap-cell" data-val="84.50">84.5°</td><td class="heatmap-cell" data-val="79.40">79.4°</td><td class="heatmap-cell" data-val="71.10">71.1°</td><td class="heatmap-cell" data-val="55.30">55.3°</td><td class="heatmap-cell" data-val="49.60">49.6°</td><td class='summary-cell'><strong>64.5°</strong></td></tr><tr><td><strong>2022</strong></td><td class="heatmap-cell" data-val="38.30">38.3°</td><td class="heatmap-cell" data-val="45.90">45.9°</td><td class="heatmap-cell" data-val="53.00">53.0°</td><td class="heatmap-cell" data-val="60.10">60.1°</td><td class="heatmap-cell" data-val="74.10">74.1°</td><td class="heatmap-cell" data-val="81.00">81.0°</td><td class="heatmap-cell" data-val="88.10">88.1°</td><td class="heatmap-cell" data-val="87.80">87.8°</td><td class="heatmap-cell" data-val="79.20">79.2°</td><td class="heatmap-cell" data-val="67.40">67.4°</td><td class="heatmap-cell" data-val="58.60">58.6°</td><td class="heatmap-cell" data-val="45.20">45.2°</td><td class='summary-cell'><strong>64.9°</strong></td></tr><tr><td><strong>2023</strong></td><td class="heatmap-cell" data-val="48.30">48.3°</td><td class="heatmap-cell" data-val="49.80">49.8°</td><td class="heatmap-cell" data-val="49.20">49.2°</td><td class="heatmap-cell" data-val="66.00">66.0°</td><td class="heatmap-cell" data-val="71.70">71.7°</td><td class="heatmap-cell" data-val="78.10">78.1°</td><td class="heatmap-cell" data-val="86.90">86.9°</td><td class="heatmap-cell" data-val="82.60">82.6°</td><td class="heatmap-cell" data-val="77.70">77.7°</td><td class="heatmap-cell" data-val="69.60">69.6°</td><td class="heatmap-cell" data-val="53.30">53.3°</td><td class="heatmap-cell" data-val="49.60">49.6°</td><td class='summary-cell'><strong>65.2°</strong></td></tr><tr><td><strong>2024</strong></td><td class="heatmap-cell" data-val="41.30">41.3°</td><td class="heatmap-cell" data-val="45.40">45.4°</td><td class="heatmap-cell" data-val="56.00">56.0°</td><td class="heatmap-cell" data-val="61.90">61.9°</td><td class="heatmap-cell" data-val="72.10">72.1°</td><td class="heatmap-cell" data-val="83.00">83.0°</td><td class="heatmap-cell" data-val="85.30">85.3°</td><td class="heatmap-cell" data-val="84.40">84.4°</td><td class="heatmap-cell" data-val="77.50">77.5°</td><td class="heatmap-cell" data-val="71.20">71.2°</td><td class="heatmap-cell" data-val="59.00">59.0°</td><td class="heatmap-cell" data-val="43.60">43.6°</td><td class='summary-cell'><strong>65.1°</strong></td></tr><tr><td><strong>2025</strong></td><td class="heatmap-cell" data-val="36.80">36.8°</td><td class="heatmap-cell" data-val="42.00">42.0°</td><td class="heatmap-cell" data-val="55.50">55.5°</td><td class="heatmap-cell" data-val="62.70">62.7°</td><td class="heatmap-cell" data-val="70.50">70.5°</td><td class="heatmap-cell" data-val="81.90">81.9°</td><td class="heatmap-cell" data-val="88.30">88.3°</td><td class="heatmap-cell" data-val="82.70">82.7°</td><td class="heatmap-cell" data-val="78.90">78.9°</td><td class="heatmap-cell" data-val="66.50">66.5°</td><td class="heatmap-cell" data-val="53.80">53.8°</td><td class="heatmap-cell" data-val="40.90">40.9°</td><td class='summary-cell'><strong>63.4°</strong></td></tr><tr><td><strong>2026</strong></td><td class="heatmap-cell" data-val="36.50">36.5°</td><td class="heatmap-cell" data-val="38.30">38.3°</td><td class="heatmap-cell" data-val="52.90">52.9°</td><td class="heatmap-cell" data-val="63.70">63.7°</td><td class="heatmap-cell" data-val="71.10">71.1°</td><td class="heatmap-cell" data-val="83.30">83.3°</td><td class="heatmap-cell" data-val="87.20">87.2°</td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class='summary-cell'><strong>61.9°</strong></td></tr><tr class='bottom-summary-row'><td><strong>All Years</strong></td><td class='summary-cell'><strong>40.2°</strong></td><td class='summary-cell'><strong>43.5°</strong></td><td class='summary-cell'><strong>53.4°</strong></td><td class='summary-cell'><strong>62.8°</strong></td><td class='summary-cell'><strong>71.8°</strong></td><td class='summary-cell'><strong>81.6°</strong></td><td class='summary-cell'><strong>86.7°</strong></td><td class='summary-cell'><strong>84.4°</strong></td><td class='summary-cell'><strong>78.5°</strong></td><td class='summary-cell'><strong>69.2°</strong></td><td class='summary-cell'><strong>56.0°</strong></td><td class='summary-cell'><strong>45.7°</strong></td><td class='summary-cell'>—</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h2>Average Low Temperatures</h2>
-        <div class="table-wrapper">
-            <table id="avg-low-table" class="heatmap-table" data-theme="blue">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
-                        <th class="summary-col-header">Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>2020</strong></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class="heatmap-cell" data-val="28.60">28.6°</td><td class='summary-cell'><strong>28.6°</strong></td></tr><tr><td><strong>2021</strong></td><td class="heatmap-cell" data-val="26.90">26.9°</td><td class="heatmap-cell" data-val="26.90">26.9°</td><td class="heatmap-cell" data-val="33.40">33.4°</td><td class="heatmap-cell" data-val="41.80">41.8°</td><td class="heatmap-cell" data-val="49.90">49.9°</td><td class="heatmap-cell" data-val="61.60">61.6°</td><td class="heatmap-cell" data-val="66.70">66.7°</td><td class="heatmap-cell" data-val="68.50">68.5°</td><td class="heatmap-cell" data-val="61.40">61.4°</td><td class="heatmap-cell" data-val="53.70">53.7°</td><td class="heatmap-cell" data-val="34.30">34.3°</td><td class="heatmap-cell" data-val="35.80">35.8°</td><td class='summary-cell'><strong>46.7°</strong></td></tr><tr><td><strong>2022</strong></td><td class="heatmap-cell" data-val="20.80">20.8°</td><td class="heatmap-cell" data-val="25.60">25.6°</td><td class="heatmap-cell" data-val="34.20">34.2°</td><td class="heatmap-cell" data-val="41.50">41.5°</td><td class="heatmap-cell" data-val="53.30">53.3°</td><td class="heatmap-cell" data-val="59.80">59.8°</td><td class="heatmap-cell" data-val="68.60">68.6°</td><td class="heatmap-cell" data-val="68.60">68.6°</td><td class="heatmap-cell" data-val="59.30">59.3°</td><td class="heatmap-cell" data-val="47.00">47.0°</td><td class="heatmap-cell" data-val="38.90">38.9°</td><td class="heatmap-cell" data-val="28.30">28.3°</td><td class='summary-cell'><strong>45.5°</strong></td></tr><tr><td><strong>2023</strong></td><td class="heatmap-cell" data-val="34.10">34.1°</td><td class="heatmap-cell" data-val="29.50">29.5°</td><td class="heatmap-cell" data-val="35.00">35.0°</td><td class="heatmap-cell" data-val="46.00">46.0°</td><td class="heatmap-cell" data-val="48.80">48.8°</td><td class="heatmap-cell" data-val="59.30">59.3°</td><td class="heatmap-cell" data-val="69.30">69.3°</td><td class="heatmap-cell" data-val="66.40">66.4°</td><td class="heatmap-cell" data-val="61.40">61.4°</td><td class="heatmap-cell" data-val="50.20">50.2°</td><td class="heatmap-cell" data-val="34.20">34.2°</td><td class="heatmap-cell" data-val="35.20">35.2°</td><td class='summary-cell'><strong>47.4°</strong></td></tr><tr><td><strong>2024</strong></td><td class="heatmap-cell" data-val="29.50">29.5°</td><td class="heatmap-cell" data-val="29.30">29.3°</td><td class="heatmap-cell" data-val="37.60">37.6°</td><td class="heatmap-cell" data-val="42.30">42.3°</td><td class="heatmap-cell" data-val="53.90">53.9°</td><td class="heatmap-cell" data-val="63.80">63.8°</td><td class="heatmap-cell" data-val="69.60">69.6°</td><td class="heatmap-cell" data-val="65.50">65.5°</td><td class="heatmap-cell" data-val="59.00">59.0°</td><td class="heatmap-cell" data-val="47.40">47.4°</td><td class="heatmap-cell" data-val="41.50">41.5°</td><td class="heatmap-cell" data-val="28.10">28.1°</td><td class='summary-cell'><strong>47.3°</strong></td></tr><tr><td><strong>2025</strong></td><td class="heatmap-cell" data-val="23.80">23.8°</td><td class="heatmap-cell" data-val="27.10">27.1°</td><td class="heatmap-cell" data-val="35.80">35.8°</td><td class="heatmap-cell" data-val="44.10">44.1°</td><td class="heatmap-cell" data-val="53.40">53.4°</td><td class="heatmap-cell" data-val="63.70">63.7°</td><td class="heatmap-cell" data-val="70.30">70.3°</td><td class="heatmap-cell" data-val="62.30">62.3°</td><td class="heatmap-cell" data-val="60.40">60.4°</td><td class="heatmap-cell" data-val="49.00">49.0°</td><td class="heatmap-cell" data-val="36.20">36.2°</td><td class="heatmap-cell" data-val="25.20">25.2°</td><td class='summary-cell'><strong>45.9°</strong></td></tr><tr><td><strong>2026</strong></td><td class="heatmap-cell" data-val="22.50">22.5°</td><td class="heatmap-cell" data-val="21.10">21.1°</td><td class="heatmap-cell" data-val="33.90">33.9°</td><td class="heatmap-cell" data-val="42.40">42.4°</td><td class="heatmap-cell" data-val="51.50">51.5°</td><td class="heatmap-cell" data-val="62.00">62.0°</td><td class="heatmap-cell" data-val="69.10">69.1°</td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class='summary-cell'><strong>43.2°</strong></td></tr><tr class='bottom-summary-row'><td><strong>All Years</strong></td><td class='summary-cell'><strong>26.3°</strong></td><td class='summary-cell'><strong>26.6°</strong></td><td class='summary-cell'><strong>35.0°</strong></td><td class='summary-cell'><strong>43.0°</strong></td><td class='summary-cell'><strong>51.8°</strong></td><td class='summary-cell'><strong>61.7°</strong></td><td class='summary-cell'><strong>68.9°</strong></td><td class='summary-cell'><strong>66.3°</strong></td><td class='summary-cell'><strong>60.3°</strong></td><td class='summary-cell'><strong>49.5°</strong></td><td class='summary-cell'><strong>37.0°</strong></td><td class='summary-cell'><strong>30.2°</strong></td><td class='summary-cell'>—</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h2>Monthly Mean Temperatures</h2>
-        <div class="table-wrapper">
-            <table id="avg-mean-table" class="heatmap-table" data-theme="teal">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
-                        <th class="summary-col-header">Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>2020</strong></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class="heatmap-cell" data-val="37.40">37.4°</td><td class='summary-cell'><strong>37.4°</strong></td></tr><tr><td><strong>2021</strong></td><td class="heatmap-cell" data-val="33.30">33.3°</td><td class="heatmap-cell" data-val="33.30">33.3°</td><td class="heatmap-cell" data-val="43.40">43.4°</td><td class="heatmap-cell" data-val="51.70">51.7°</td><td class="heatmap-cell" data-val="60.50">60.5°</td><td class="heatmap-cell" data-val="71.70">71.7°</td><td class="heatmap-cell" data-val="75.00">75.0°</td><td class="heatmap-cell" data-val="75.80">75.8°</td><td class="heatmap-cell" data-val="69.90">69.9°</td><td class="heatmap-cell" data-val="61.80">61.8°</td><td class="heatmap-cell" data-val="44.80">44.8°</td><td class="heatmap-cell" data-val="42.80">42.8°</td><td class='summary-cell'><strong>55.3°</strong></td></tr><tr><td><strong>2022</strong></td><td class="heatmap-cell" data-val="29.80">29.8°</td><td class="heatmap-cell" data-val="35.60">35.6°</td><td class="heatmap-cell" data-val="43.30">43.3°</td><td class="heatmap-cell" data-val="50.10">50.1°</td><td class="heatmap-cell" data-val="62.40">62.4°</td><td class="heatmap-cell" data-val="70.00">70.0°</td><td class="heatmap-cell" data-val="78.20">78.2°</td><td class="heatmap-cell" data-val="77.40">77.4°</td><td class="heatmap-cell" data-val="68.50">68.5°</td><td class="heatmap-cell" data-val="56.40">56.4°</td><td class="heatmap-cell" data-val="48.60">48.6°</td><td class="heatmap-cell" data-val="36.80">36.8°</td><td class='summary-cell'><strong>54.8°</strong></td></tr><tr><td><strong>2023</strong></td><td class="heatmap-cell" data-val="41.10">41.1°</td><td class="heatmap-cell" data-val="39.50">39.5°</td><td class="heatmap-cell" data-val="41.50">41.5°</td><td class="heatmap-cell" data-val="55.10">55.1°</td><td class="heatmap-cell" data-val="60.60">60.6°</td><td class="heatmap-cell" data-val="67.90">67.9°</td><td class="heatmap-cell" data-val="77.50">77.5°</td><td class="heatmap-cell" data-val="73.90">73.9°</td><td class="heatmap-cell" data-val="68.80">68.8°</td><td class="heatmap-cell" data-val="58.80">58.8°</td><td class="heatmap-cell" data-val="44.10">44.1°</td><td class="heatmap-cell" data-val="42.30">42.3°</td><td class='summary-cell'><strong>55.9°</strong></td></tr><tr><td><strong>2024</strong></td><td class="heatmap-cell" data-val="35.40">35.4°</td><td class="heatmap-cell" data-val="37.10">37.1°</td><td class="heatmap-cell" data-val="45.70">45.7°</td><td class="heatmap-cell" data-val="51.40">51.4°</td><td class="heatmap-cell" data-val="62.10">62.1°</td><td class="heatmap-cell" data-val="72.80">72.8°</td><td class="heatmap-cell" data-val="76.90">76.9°</td><td class="heatmap-cell" data-val="74.10">74.1°</td><td class="heatmap-cell" data-val="67.50">67.5°</td><td class="heatmap-cell" data-val="58.50">58.5°</td><td class="heatmap-cell" data-val="50.30">50.3°</td><td class="heatmap-cell" data-val="35.90">35.9°</td><td class='summary-cell'><strong>55.6°</strong></td></tr><tr><td><strong>2025</strong></td><td class="heatmap-cell" data-val="30.60">30.6°</td><td class="heatmap-cell" data-val="34.20">34.2°</td><td class="heatmap-cell" data-val="45.00">45.0°</td><td class="heatmap-cell" data-val="53.00">53.0°</td><td class="heatmap-cell" data-val="61.30">61.3°</td><td class="heatmap-cell" data-val="72.40">72.4°</td><td class="heatmap-cell" data-val="78.60">78.6°</td><td class="heatmap-cell" data-val="72.10">72.1°</td><td class="heatmap-cell" data-val="69.00">69.0°</td><td class="heatmap-cell" data-val="57.80">57.8°</td><td class="heatmap-cell" data-val="45.00">45.0°</td><td class="heatmap-cell" data-val="33.40">33.4°</td><td class='summary-cell'><strong>54.4°</strong></td></tr><tr><td><strong>2026</strong></td><td class="heatmap-cell" data-val="29.10">29.1°</td><td class="heatmap-cell" data-val="29.70">29.7°</td><td class="heatmap-cell" data-val="43.30">43.3°</td><td class="heatmap-cell" data-val="52.40">52.4°</td><td class="heatmap-cell" data-val="61.20">61.2°</td><td class="heatmap-cell" data-val="72.80">72.8°</td><td class="heatmap-cell" data-val="78.20">78.2°</td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class='summary-cell'><strong>52.4°</strong></td></tr><tr class='bottom-summary-row'><td><strong>All Years</strong></td><td class='summary-cell'><strong>33.2°</strong></td><td class='summary-cell'><strong>34.9°</strong></td><td class='summary-cell'><strong>43.7°</strong></td><td class='summary-cell'><strong>52.3°</strong></td><td class='summary-cell'><strong>61.3°</strong></td><td class='summary-cell'><strong>71.3°</strong></td><td class='summary-cell'><strong>77.4°</strong></td><td class='summary-cell'><strong>74.7°</strong></td><td class='summary-cell'><strong>68.7°</strong></td><td class='summary-cell'><strong>58.7°</strong></td><td class='summary-cell'><strong>46.6°</strong></td><td class='summary-cell'><strong>38.1°</strong></td><td class='summary-cell'>—</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h2>Absolute Highest Temperatures</h2>
-        <div class="table-wrapper">
-            <table id="max-high-table" class="heatmap-table" data-theme="red">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
-                        <th class="summary-col-header">Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>2020</strong></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class="heatmap-cell" data-val="62.20">62.2°</td><td class='summary-cell'><strong>62.2°</strong></td></tr><tr><td><strong>2021</strong></td><td class="heatmap-cell" data-val="52.90">52.9°</td><td class="heatmap-cell" data-val="53.20">53.2°</td><td class="heatmap-cell" data-val="81.00">81.0°</td><td class="heatmap-cell" data-val="78.40">78.4°</td><td class="heatmap-cell" data-val="90.00">90.0°</td><td class="heatmap-cell" data-val="93.00">93.0°</td><td class="heatmap-cell" data-val="92.70">92.7°</td><td class="heatmap-cell" data-val="95.70">95.7°</td><td class="heatmap-cell" data-val="87.30">87.3°</td><td class="heatmap-cell" data-val="82.40">82.4°</td><td class="heatmap-cell" data-val="72.70">72.7°</td><td class="heatmap-cell" data-val="63.10">63.1°</td><td class='summary-cell'><strong>95.7°</strong></td></tr><tr><td><strong>2022</strong></td><td class="heatmap-cell" data-val="58.80">58.8°</td><td class="heatmap-cell" data-val="69.10">69.1°</td><td class="heatmap-cell" data-val="72.10">72.1°</td><td class="heatmap-cell" data-val="77.50">77.5°</td><td class="heatmap-cell" data-val="96.40">96.4°</td><td class="heatmap-cell" data-val="91.90">91.9°</td><td class="heatmap-cell" data-val="97.90">97.9°</td><td class="heatmap-cell" data-val="95.00">95.0°</td><td class="heatmap-cell" data-val="89.10">89.1°</td><td class="heatmap-cell" data-val="82.20">82.2°</td><td class="heatmap-cell" data-val="80.10">80.1°</td><td class="heatmap-cell" data-val="62.60">62.6°</td><td class='summary-cell'><strong>97.9°</strong></td></tr><tr><td><strong>2023</strong></td><td class="heatmap-cell" data-val="67.10">67.1°</td><td class="heatmap-cell" data-val="72.00">72.0°</td><td class="heatmap-cell" data-val="61.50">61.5°</td><td class="heatmap-cell" data-val="87.80">87.8°</td><td class="heatmap-cell" data-val="86.70">86.7°</td><td class="heatmap-cell" data-val="86.00">86.0°</td><td class="heatmap-cell" data-val="93.60">93.6°</td><td class="heatmap-cell" data-val="91.00">91.0°</td><td class="heatmap-cell" data-val="95.20">95.2°</td><td class="heatmap-cell" data-val="85.50">85.5°</td><td class="heatmap-cell" data-val="66.20">66.2°</td><td class="heatmap-cell" data-val="60.40">60.4°</td><td class='summary-cell'><strong>95.2°</strong></td></tr><tr><td><strong>2024</strong></td><td class="heatmap-cell" data-val="57.70">57.7°</td><td class="heatmap-cell" data-val="56.80">56.8°</td><td class="heatmap-cell" data-val="73.20">73.2°</td><td class="heatmap-cell" data-val="85.50">85.5°</td><td class="heatmap-cell" data-val="87.40">87.4°</td><td class="heatmap-cell" data-val="93.00">93.0°</td><td class="heatmap-cell" data-val="93.20">93.2°</td><td class="heatmap-cell" data-val="94.60">94.6°</td><td class="heatmap-cell" data-val="85.10">85.1°</td><td class="heatmap-cell" data-val="83.30">83.3°</td><td class="heatmap-cell" data-val="80.60">80.6°</td><td class="heatmap-cell" data-val="58.80">58.8°</td><td class='summary-cell'><strong>94.6°</strong></td></tr><tr><td><strong>2025</strong></td><td class="heatmap-cell" data-val="51.10">51.1°</td><td class="heatmap-cell" data-val="58.50">58.5°</td><td class="heatmap-cell" data-val="80.80">80.8°</td><td class="heatmap-cell" data-val="87.30">87.3°</td><td class="heatmap-cell" data-val="80.40">80.4°</td><td class="heatmap-cell" data-val="102.90">102.9°</td><td class="heatmap-cell" data-val="97.90">97.9°</td><td class="heatmap-cell" data-val="91.90">91.9°</td><td class="heatmap-cell" data-val="86.70">86.7°</td><td class="heatmap-cell" data-val="84.60">84.6°</td><td class="heatmap-cell" data-val="68.90">68.9°</td><td class="heatmap-cell" data-val="56.80">56.8°</td><td class='summary-cell'><strong>102.9°</strong></td></tr><tr><td><strong>2026</strong></td><td class="heatmap-cell" data-val="52.50">52.5°</td><td class="heatmap-cell" data-val="53.90">53.9°</td><td class="heatmap-cell" data-val="73.90">73.9°</td><td class="heatmap-cell" data-val="85.50">85.5°</td><td class="heatmap-cell" data-val="94.10">94.1°</td><td class="heatmap-cell" data-val="96.10">96.1°</td><td class="heatmap-cell" data-val="102.20">102.2°</td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class='summary-cell'><strong>102.2°</strong></td></tr><tr class='bottom-summary-row'><td><strong>All Years</strong></td><td class='summary-cell'><strong>67.1°</strong></td><td class='summary-cell'><strong>72.0°</strong></td><td class='summary-cell'><strong>81.0°</strong></td><td class='summary-cell'><strong>87.8°</strong></td><td class='summary-cell'><strong>96.4°</strong></td><td class='summary-cell'><strong>102.9°</strong></td><td class='summary-cell'><strong>102.2°</strong></td><td class='summary-cell'><strong>95.7°</strong></td><td class='summary-cell'><strong>95.2°</strong></td><td class='summary-cell'><strong>85.5°</strong></td><td class='summary-cell'><strong>80.6°</strong></td><td class='summary-cell'><strong>63.1°</strong></td><td class='summary-cell'>—</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h2>Absolute Lowest Temperatures</h2>
-        <div class="table-wrapper">
-            <table id="min-low-table" class="heatmap-table" data-theme="blue">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
-                        <th class="summary-col-header">Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>2020</strong></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class="heatmap-cell" data-val="16.00">16.0°</td><td class='summary-cell'><strong>16.0°</strong></td></tr><tr><td><strong>2021</strong></td><td class="heatmap-cell" data-val="14.20">14.2°</td><td class="heatmap-cell" data-val="14.90">14.9°</td><td class="heatmap-cell" data-val="20.50">20.5°</td><td class="heatmap-cell" data-val="28.80">28.8°</td><td class="heatmap-cell" data-val="41.40">41.4°</td><td class="heatmap-cell" data-val="47.70">47.7°</td><td class="heatmap-cell" data-val="53.60">53.6°</td><td class="heatmap-cell" data-val="59.70">59.7°</td><td class="heatmap-cell" data-val="52.30">52.3°</td><td class="heatmap-cell" data-val="42.40">42.4°</td><td class="heatmap-cell" data-val="23.50">23.5°</td><td class="heatmap-cell" data-val="23.00">23.0°</td><td class='summary-cell'><strong>14.2°</strong></td></tr><tr><td><strong>2022</strong></td><td class="heatmap-cell" data-val="7.00">7.0°</td><td class="heatmap-cell" data-val="13.60">13.6°</td><td class="heatmap-cell" data-val="16.70">16.7°</td><td class="heatmap-cell" data-val="30.60">30.6°</td><td class="heatmap-cell" data-val="37.60">37.6°</td><td class="heatmap-cell" data-val="51.30">51.3°</td><td class="heatmap-cell" data-val="58.60">58.6°</td><td class="heatmap-cell" data-val="57.40">57.4°</td><td class="heatmap-cell" data-val="43.30">43.3°</td><td class="heatmap-cell" data-val="34.00">34.0°</td><td class="heatmap-cell" data-val="20.80">20.8°</td><td class="heatmap-cell" data-val="7.20">7.2°</td><td class='summary-cell'><strong>7.0°</strong></td></tr><tr><td><strong>2023</strong></td><td class="heatmap-cell" data-val="25.50">25.5°</td><td class="heatmap-cell" data-val="3.90">3.9°</td><td class="heatmap-cell" data-val="29.80">29.8°</td><td class="heatmap-cell" data-val="30.70">30.7°</td><td class="heatmap-cell" data-val="39.40">39.4°</td><td class="heatmap-cell" data-val="47.10">47.1°</td><td class="heatmap-cell" data-val="59.70">59.7°</td><td class="heatmap-cell" data-val="58.30">58.3°</td><td class="heatmap-cell" data-val="49.80">49.8°</td><td class="heatmap-cell" data-val="39.40">39.4°</td><td class="heatmap-cell" data-val="23.50">23.5°</td><td class="heatmap-cell" data-val="21.40">21.4°</td><td class='summary-cell'><strong>3.9°</strong></td></tr><tr><td><strong>2024</strong></td><td class="heatmap-cell" data-val="16.90">16.9°</td><td class="heatmap-cell" data-val="18.50">18.5°</td><td class="heatmap-cell" data-val="25.00">25.0°</td><td class="heatmap-cell" data-val="32.40">32.4°</td><td class="heatmap-cell" data-val="41.50">41.5°</td><td class="heatmap-cell" data-val="54.10">54.1°</td><td class="heatmap-cell" data-val="60.80">60.8°</td><td class="heatmap-cell" data-val="53.20">53.2°</td><td class="heatmap-cell" data-val="47.30">47.3°</td><td class="heatmap-cell" data-val="37.20">37.2°</td><td class="heatmap-cell" data-val="28.20">28.2°</td><td class="heatmap-cell" data-val="9.10">9.1°</td><td class='summary-cell'><strong>9.1°</strong></td></tr><tr><td><strong>2025</strong></td><td class="heatmap-cell" data-val="9.30">9.3°</td><td class="heatmap-cell" data-val="16.20">16.2°</td><td class="heatmap-cell" data-val="16.30">16.3°</td><td class="heatmap-cell" data-val="31.10">31.1°</td><td class="heatmap-cell" data-val="44.80">44.8°</td><td class="heatmap-cell" data-val="46.00">46.0°</td><td class="heatmap-cell" data-val="61.30">61.3°</td><td class="heatmap-cell" data-val="52.30">52.3°</td><td class="heatmap-cell" data-val="49.80">49.8°</td><td class="heatmap-cell" data-val="37.80">37.8°</td><td class="heatmap-cell" data-val="26.70">26.7°</td><td class="heatmap-cell" data-val="14.90">14.9°</td><td class='summary-cell'><strong>9.3°</strong></td></tr><tr><td><strong>2026</strong></td><td class="heatmap-cell" data-val="7.30">7.3°</td><td class="heatmap-cell" data-val="3.40">3.4°</td><td class="heatmap-cell" data-val="19.70">19.7°</td><td class="heatmap-cell" data-val="28.20">28.2°</td><td class="heatmap-cell" data-val="41.20">41.2°</td><td class="heatmap-cell" data-val="45.90">45.9°</td><td class="heatmap-cell" data-val="62.00">62.0°</td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class='summary-cell'><strong>3.4°</strong></td></tr><tr class='bottom-summary-row'><td><strong>All Years</strong></td><td class='summary-cell'><strong>7.0°</strong></td><td class='summary-cell'><strong>3.4°</strong></td><td class='summary-cell'><strong>16.3°</strong></td><td class='summary-cell'><strong>28.2°</strong></td><td class='summary-cell'><strong>37.6°</strong></td><td class='summary-cell'><strong>45.9°</strong></td><td class='summary-cell'><strong>53.6°</strong></td><td class='summary-cell'><strong>52.3°</strong></td><td class='summary-cell'><strong>43.3°</strong></td><td class='summary-cell'><strong>34.0°</strong></td><td class='summary-cell'><strong>20.8°</strong></td><td class='summary-cell'><strong>7.2°</strong></td><td class='summary-cell'>—</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <div class="card">
-        <h2>Total Monthly Precipitation</h2>
-        <div class="table-wrapper">
-            <table id="precip-table" class="heatmap-table" data-theme="indigo">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th><th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
-                        <th class="summary-col-header">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>2020</strong></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class="heatmap-cell" data-val="1.92">1.92</td><td class='summary-cell'><strong>1.92</strong></td></tr><tr><td><strong>2021</strong></td><td class="heatmap-cell" data-val="2.25">2.25</td><td class="heatmap-cell" data-val="2.23">2.23</td><td class="heatmap-cell" data-val="3.01">3.01</td><td class="heatmap-cell" data-val="3.46">3.46</td><td class="heatmap-cell" data-val="3.35">3.35</td><td class="heatmap-cell" data-val="1.58">1.58</td><td class="heatmap-cell" data-val="7.80">7.80</td><td class="heatmap-cell" data-val="6.23">6.23</td><td class="heatmap-cell" data-val="5.80">5.80</td><td class="heatmap-cell" data-val="4.24">4.24</td><td class="heatmap-cell" data-val="0.92">0.92</td><td class="heatmap-cell" data-val="1.30">1.30</td><td class='summary-cell'><strong>42.17</strong></td></tr><tr><td><strong>2022</strong></td><td class="heatmap-cell" data-val="3.23">3.23</td><td class="heatmap-cell" data-val="2.75">2.75</td><td class="heatmap-cell" data-val="2.52">2.52</td><td class="heatmap-cell" data-val="2.82">2.82</td><td class="heatmap-cell" data-val="4.10">4.10</td><td class="heatmap-cell" data-val="3.64">3.64</td><td class="heatmap-cell" data-val="0.93">0.93</td><td class="heatmap-cell" data-val="0.73">0.73</td><td class="heatmap-cell" data-val="3.28">3.28</td><td class="heatmap-cell" data-val="5.19">5.19</td><td class="heatmap-cell" data-val="3.51">3.51</td><td class="heatmap-cell" data-val="3.77">3.77</td><td class='summary-cell'><strong>36.47</strong></td></tr><tr><td><strong>2023</strong></td><td class="heatmap-cell" data-val="3.97">3.97</td><td class="heatmap-cell" data-val="0.88">0.88</td><td class="heatmap-cell" data-val="3.07">3.07</td><td class="heatmap-cell" data-val="4.89">4.89</td><td class="heatmap-cell" data-val="2.45">2.45</td><td class="heatmap-cell" data-val="1.68">1.68</td><td class="heatmap-cell" data-val="4.14">4.14</td><td class="heatmap-cell" data-val="5.57">5.57</td><td class="heatmap-cell" data-val="8.28">8.28</td><td class="heatmap-cell" data-val="3.62">3.62</td><td class="heatmap-cell" data-val="1.81">1.81</td><td class="heatmap-cell" data-val="8.21">8.21</td><td class='summary-cell'><strong>48.57</strong></td></tr><tr><td><strong>2024</strong></td><td class="heatmap-cell" data-val="5.59">5.59</td><td class="heatmap-cell" data-val="1.39">1.39</td><td class="heatmap-cell" data-val="9.51">9.51</td><td class="heatmap-cell" data-val="3.11">3.11</td><td class="heatmap-cell" data-val="3.14">3.14</td><td class="heatmap-cell" data-val="3.77">3.77</td><td class="heatmap-cell" data-val="3.97">3.97</td><td class="heatmap-cell" data-val="6.22">6.22</td><td class="heatmap-cell" data-val="0.25">0.25</td><td class="heatmap-cell" data-val="0.09">0.09</td><td class="heatmap-cell" data-val="2.09">2.09</td><td class="heatmap-cell" data-val="2.94">2.94</td><td class='summary-cell'><strong>42.07</strong></td></tr><tr><td><strong>2025</strong></td><td class="heatmap-cell" data-val="0.32">0.32</td><td class="heatmap-cell" data-val="1.99">1.99</td><td class="heatmap-cell" data-val="4.44">4.44</td><td class="heatmap-cell" data-val="1.90">1.90</td><td class="heatmap-cell" data-val="4.78">4.78</td><td class="heatmap-cell" data-val="1.95">1.95</td><td class="heatmap-cell" data-val="5.37">5.37</td><td class="heatmap-cell" data-val="1.58">1.58</td><td class="heatmap-cell" data-val="2.37">2.37</td><td class="heatmap-cell" data-val="4.46">4.46</td><td class="heatmap-cell" data-val="2.12">2.12</td><td class="heatmap-cell" data-val="3.79">3.79</td><td class='summary-cell'><strong>35.07</strong></td></tr><tr><td><strong>2026</strong></td><td class="heatmap-cell" data-val="2.27">2.27</td><td class="heatmap-cell" data-val="3.00">3.00</td><td class="heatmap-cell" data-val="4.12">4.12</td><td class="heatmap-cell" data-val="2.30">2.30</td><td class="heatmap-cell" data-val="4.09">4.09</td><td class="heatmap-cell" data-val="1.59">1.59</td><td class="heatmap-cell" data-val="5.55">5.55</td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td><span class='missing'>—</span></td><td class='summary-cell'><strong>22.92</strong></td></tr><tr class='bottom-summary-row'><td><strong>All Years</strong></td><td class='summary-cell'><strong>2.94</strong></td><td class='summary-cell'><strong>2.04</strong></td><td class='summary-cell'><strong>4.45</strong></td><td class='summary-cell'><strong>3.08</strong></td><td class='summary-cell'><strong>3.65</strong></td><td class='summary-cell'><strong>2.37</strong></td><td class='summary-cell'><strong>4.63</strong></td><td class='summary-cell'><strong>4.07</strong></td><td class='summary-cell'><strong>4.00</strong></td><td class='summary-cell'><strong>3.52</strong></td><td class='summary-cell'><strong>2.09</strong></td><td class='summary-cell'><strong>3.65</strong></td><td class='summary-cell'>—</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-        </div>
-    </div>
+  <h2>View Monthly Tables</h2>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelectorAll(".heatmap-table").forEach(table => {
-                const cells = table.querySelectorAll(".heatmap-cell");
-                const theme = table.getAttribute("data-theme");
-                
-                let values = [];
-                cells.forEach(c => {
-                    const val = parseFloat(c.getAttribute("data-val"));
-                    if (!isNaN(val)) values.push(val);
-                });
-                
-                if (values.length === 0) return;
-                
-                const min = Math.min(...values);
-                const max = Math.max(...values);
-                const range = max - min;
-                
-                cells.forEach(cell => {
-                    const val = parseFloat(cell.getAttribute("data-val"));
-                    if (isNaN(val)) return;
-                    
-                    const pct = range === 0 ? 0.5 : (val - min) / range;
-                    
-                    // Render custom color ranges per table profile context
-                    if (theme === "orange") {
-                        cell.style.backgroundColor = `rgba(249, 115, 22, ${0.15 + pct * 0.75})`;
-                        cell.style.color = pct > 0.6 ? "#ffffff" : "#1a202c";
-                    } else if (theme === "blue") {
-                        cell.style.backgroundColor = `rgba(37, 99, 235, ${0.15 + pct * 0.75})`;
-                        cell.style.color = pct > 0.6 ? "#ffffff" : "#1a202c";
-                    } else if (theme === "red") {
-                        cell.style.backgroundColor = `rgba(220, 38, 38, ${0.15 + pct * 0.75})`;
-                        cell.style.color = pct > 0.6 ? "#ffffff" : "#1a202c";
-                    } else if (theme === "teal") {
-                        cell.style.backgroundColor = `rgba(13, 148, 136, ${0.15 + pct * 0.75})`;
-                        cell.style.color = pct > 0.6 ? "#ffffff" : "#1a202c";
-                    } else if (theme === "indigo") {
-                        // Custom profile tailored exclusively for rain volume monitoring
-                        cell.style.backgroundColor = `rgba(79, 70, 229, ${0.1 + pct * 0.8})`;
-                        cell.style.color = pct > 0.55 ? "#ffffff" : "#1a202c";
-                    }
-                });
-            });
+  <select id="monthSelector" onchange="loadPage()">
+    <option value="">-- Select a month --</option>
+    <!-- Months from Dec 2020 to February 2026 -->
+    <option value="extreme_weather_summary.html">Top 10 Records</option>
+    <option value="December_2020.html">December 2020</option>
+    <option value="January_2021.html">January 2021</option>
+    <option value="February_2021.html">February 2021</option>
+    <option value="March_2021.html">March 2021</option>
+    <option value="April_2021.html">April 2021</option>
+    <option value="May_2021.html">May 2021</option>
+    <option value="June_2021.html">June 2021</option>
+    <option value="July_2021.html">July 2021</option>
+    <option value="August_2021.html">August 2021</option>
+    <option value="September_2021.html">September 2021</option>
+    <option value="October_2021.html">October 2021</option>
+    <option value="November_2021.html">November 2021</option>
+    <option value="December_2021.html">December 2021</option>
+    <option value="January_2022.html">January 2022</option>
+    <option value="February_2022.html">February 2022</option>
+    <option value="March_2022.html">March 2022</option>
+    <option value="April_2022.html">April 2022</option>
+    <option value="May_2022.html">May 2022</option>
+    <option value="June_2022.html">June 2022</option>
+    <option value="July_2022.html">July 2022</option>
+    <option value="August_2022.html">August 2022</option>
+    <option value="September_2022.html">September 2022</option>
+    <option value="October_2022.html">October 2022</option>
+    <option value="November_2022.html">November 2022</option>
+    <option value="December_2022.html">December 2022</option>
+    <option value="January_2023.html">January 2023</option>
+    <option value="February_2023.html">February 2023</option>
+    <option value="March_2023.html">March 2023</option>
+    <option value="April_2023.html">April 2023</option>
+    <option value="May_2023.html">May 2023</option>
+    <option value="June_2023.html">June 2023</option>
+    <option value="July_2023.html">July 2023</option>
+    <option value="August_2023.html">August 2023</option>
+    <option value="September_2023.html">September 2023</option>
+    <option value="October_2023.html">October 2023</option>
+    <option value="November_2023.html">November 2023</option>
+    <option value="December_2023.html">December 2023</option>
+    <option value="January_2024.html">January 2024</option>
+    <option value="February_2024.html">February 2024</option>
+    <option value="March_2024.html">March 2024</option>
+    <option value="April_2024.html">April 2024</option>
+    <option value="May_2024.html">May 2024</option>
+    <option value="June_2024.html">June 2024</option>
+    <option value="July_2024.html">July 2024</option>
+    <option value="August_2024.html">August 2024</option>
+    <option value="September_2024.html">September 2024</option>
+    <option value="October_2024.html">October 2024</option>
+    <option value="November_2024.html">November 2024</option>
+    <option value="December_2024.html">December 2024</option>
+    <option value="January_2025.html">January 2025</option>
+    <option value="February_2025.html">February 2025</option>
+    <option value="March_2025.html">March 2025</option>
+    <option value="April_2025.html">April 2025</option>
+    <option value="May_2025.html">May 2025</option>
+    <option value="June_2025.html">June 2025</option>
+    <option value="July_2025.html">July 2025</option>
+    <option value="August_2025.html">August 2025</option>
+    <option value="September_2025.html">September 2025</option>
+    <option value="October_2025.html">October 2025</option>
+    <option value="November_2025.html">November 2025</option>
+    <option value="December_2025.html">December 2025</option>
+    <option value="January_2026.html">January 2026</option>
+    <option value="February_2026.html">February 2026</option>
+    <option value="March_2026.html">March 2026</option>
+    <option value="April_2026.html">April 2026</option>
+    <option value="May_2026.html">May 2026</option>
+    <option value="June_2026.html">June 2026</option>
+    <option value="July_2026.html">July 2026</option>
+  </select>
+
+  <div id="content">
+    <p>Please select a month to load its data.</p>
+  </div>
+
+  <script>
+    function loadPage() {
+      const selector = document.getElementById('monthSelector');
+      const file = selector.value;
+
+      if (!file) {
+        document.getElementById('content').innerHTML = "<p>Please select a month to load its data.</p>";
+        return;
+      }
+
+      fetch(file)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('File not found.');
+          }
+          return response.text();
+        })
+        .then(html => {
+          document.getElementById('content').innerHTML = html;
+        })
+        .catch(error => {
+          document.getElementById('content').innerHTML = `<p style="color:red;">Error loading file: ${error.message}</p>`;
         });
-    </script>
+    }
+  </script>
 </body>
 </html>
